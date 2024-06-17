@@ -1,5 +1,5 @@
 // imports Bibliotecas
-import React from 'react'
+import React, { useEffect } from 'react'
 
 // Importa CSS  
 import './Navbar.css'
@@ -10,6 +10,23 @@ import Profile_img from '../../assets/img/profile_img.png'
 import { BsSearch, BsBell, BsCaretDown } from "react-icons/bs";
 
 const Navbar = () => {
+    useEffect(() => {
+        const handleScroll = () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 0) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        }; 
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []); // Aplicando efeito de scroll no navbar
+
     return (
         <div className='navbar'>
             <div className="navbar-left">

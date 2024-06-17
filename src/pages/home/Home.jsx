@@ -11,6 +11,7 @@ import { BsPlayFill, BsInfoCircle } from "react-icons/bs";
 
 // Imports Components
 import Navbar from '../../components/navbar/Navbar'
+import TitleCards from '../../components/tile-cards/TitleCards';
 
 const Home = () => {
     return (
@@ -28,6 +29,8 @@ const Home = () => {
                         <button className='btn'><i><BsPlayFill /></i>Assistir</button>
                         <button className='btn btn-info'><i><BsInfoCircle /></i>Mais  informações</button>
                     </div>
+
+                    <TitleCards/>
                 </div>
             </div>
         </div>

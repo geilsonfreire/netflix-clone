@@ -10,6 +10,12 @@
     z-index: 1;
 }
 
+/*Class css Js*/
+.navbar-scrolled {
+    background-color: rgba(0, 0, 0, 0.932);
+    transition: background-color 1s ease-in;
+}
+
 /* Lsft */
 .navbar-left {
     display: flex;
