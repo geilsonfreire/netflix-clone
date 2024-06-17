@@ -29,9 +29,14 @@ const Home = () => {
                         <button className='btn'><i><BsPlayFill /></i>Assistir</button>
                         <button className='btn btn-info'><i><BsInfoCircle /></i>Mais  informações</button>
                     </div>
-
-                    <TitleCards/>
+                    <TitleCards />
                 </div>
+            </div>
+            <div className="other-cards">
+                <TitleCards title={"Continuar assistindo"}/>
+                <TitleCards title={"Top 10 de hoje"} />
+                <TitleCards title={"So na Netflix"} />
+                <TitleCards title={"séries favoritas da familia"} />
             </div>
         </div>
     )

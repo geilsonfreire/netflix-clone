@@ -11,7 +11,7 @@ import { BsChevronRight, BsChevronLeft } from "react-icons/bs";
 import Cards_Data from '../../assets/cards/Cards_data'
 
 
-const TitleCards = () => {
+const TitleCards = ({title, category}) => {
 
     // Declaraçao de constants e funçoes
     const cardsRef = useRef();
@@ -35,7 +35,7 @@ const TitleCards = () => {
 
     return (
         <div className='title-cards'>
-            <h2>Novidades na Netflix</h2>
+            <h2>{title ? title : "Novidades na Netflix"}</h2>
             <BsChevronLeft className="scroll-icon left" onClick={scrollLeft} />
             <div className="cards-list" ref={cardsRef}>
                 {Cards_Data.map((card, index) => {
