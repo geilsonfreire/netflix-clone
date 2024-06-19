@@ -1,0 +1,125 @@
+/*Logim geral */
+.login {
+    height: 100%;
+    background-image:
+        linear-gradient(#0000007e, #0000007e), url(/public/background_banner.jpg);
+    padding: 20px 8%;
+}
+
+/*Login Logo  */
+.login-logo {
+    width: 150px;
+}
+
+/*Login Form */
+.login-form {
+    width: 100%;
+    max-width: 450px;
+    background: rgba(0, 0, 0, 0.75);
+    border-radius: 4px;
+    padding: 60px;
+    margin: auto;
+}
+
+.login-form h1 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.login-form input {
+    width: 100%;
+    height: 50px;
+    background: #3333336e;
+    color: white;
+    margin: 12px 0;
+    padding: 16px 20px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.login-form input::placeholder {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Login Buttons */
+.login-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.login-form button {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 16px;
+    background: #e50914;
+    color: white;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 20px;
+    cursor: pointer;
+}
+
+.login-form button:hover {
+    background: #ff0a0eb4;
+}
+
+button.codigo-acesso {
+    background: rgba(160, 159, 159, 0.295);
+}
+
+button.codigo-acesso:hover {
+    background: rgba(160, 159, 159, 0.13);
+}
+
+/* Login Help */
+.form-help {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    color: #b3b3b3;
+    font-size: 16px;
+}
+
+.form-help a {
+    color: #b3b3b3;
+    margin: 14px auto;
+
+}
+
+.form-help a:hover {
+    text-decoration: underline;
+}
+
+.lembrar {
+    display: flex;
+   align-items: center;
+    gap: 5px;
+}
+
+.lembrar input {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.form-help p {
+    color: #b3b3b3;
+    font-size: 13px;
+    margin: 10px 0;
+}
+
+.form-help p a {
+    color: white;
+    font-size: 16px;
+    margin: 0 10px;
+}
