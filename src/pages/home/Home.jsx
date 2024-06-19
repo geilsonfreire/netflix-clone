@@ -12,6 +12,7 @@ import { BsPlayFill, BsInfoCircle } from "react-icons/bs";
 // Imports Components
 import Navbar from '../../components/navbar/Navbar'
 import TitleCards from '../../components/tile-cards/TitleCards';
+import Footer from '../../components/footer/Footer';
 
 const Home = () => {
     return (
@@ -38,6 +39,7 @@ const Home = () => {
                 <TitleCards title={"So na Netflix"} />
                 <TitleCards title={"séries favoritas da familia"} />
             </div>
+            <Footer />
         </div>
     )
 }
