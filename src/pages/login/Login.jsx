@@ -7,6 +7,9 @@ import './Login.css'
 // Import Icons, img, Assets
 import Logo from '../../assets/img/logo.png'
 
+// Import Components
+import Footer from '../../components/footer/Footer'
+
 const Login = () => {
     return (
         <div className='login'>
@@ -39,6 +42,7 @@ const Login = () => {
                     </div>
                 </form>
             </div>
+            <Footer/>
         </div>
     )
 }

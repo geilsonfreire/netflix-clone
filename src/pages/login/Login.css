@@ -3,12 +3,13 @@
     height: 100%;
     background-image:
         linear-gradient(#0000007e, #0000007e), url(/public/background_banner.jpg);
-    padding: 20px 8%;
+    padding: 20px 0;
 }
 
 /*Login Logo  */
 .login-logo {
     width: 150px;
+    margin: 0 8%;
 }
 
 /*Login Form */
