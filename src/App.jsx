@@ -1,6 +1,7 @@
 // Imports Bibliotecas
-import React from 'react'
-import { Routes, Route } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Routes, Route, useNavigate } from 'react-router-dom'
+import { onAuthStateChanged } from 'firebase/auth'
 
 // Imports Components
 import Home from './pages/home/Home'
@@ -11,6 +12,21 @@ import Player from './pages/player/player'
 
 
 const App = () => {
+
+    const Navigate = useNavigate();
+
+    useEffect(() => {
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                console.log("Logado...");
+                Navigate('/');
+            } else {
+                console.log("Deconectado...");
+                Navigate('/login');
+            }
+        })
+    }, [])
+
     return (
         <div>
             <Routes>
