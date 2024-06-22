@@ -8,6 +8,7 @@ import './Navbar.css'
 import logo from '../../assets/img/logo.png'
 import Profile_img from '../../assets/img/profile_img.png'
 import { BsSearch, BsBell, BsCaretDown } from "react-icons/bs";
+import { logout } from '../../Firebase/FirebaseAuth';
 
 const Navbar = () => {
 
@@ -52,7 +53,7 @@ const Navbar = () => {
                     <i className='navbar-profile'>{<BsCaretDown />}</i>
 
                     <div className="dropdown">
-                        <p>Sair da Netflix</p>
+                        <p onClick={() => {logout()}}> Sair da Netflix</p>
                     </div>
                 </div>
 
