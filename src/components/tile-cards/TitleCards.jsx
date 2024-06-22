@@ -15,7 +15,7 @@ import Cards_Data from '../../assets/cards/Cards_data'
 const TitleCards = ({ title, category }) => {
 
     // Declaraçao de constants e funçoes
-    const [apiData, setApiData] = useState([]); // [1]  - Estado para armazenar os dados da API
+    const [apiData, setApiData] = useState([]);
     const cardsRef = useRef();
 
     const options = {

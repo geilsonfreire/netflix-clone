@@ -12,8 +12,8 @@
 
 /*Class css Js*/
 .navbar-scrolled {
-    background-color: rgba(0, 0, 0, 0.932);
-    transition: background-color 1s ease-in;
+    background-color: rgba(0, 0, 0, 0.959);
+    transition: background-color .5s ease-in;
 }
 
 /* Lsft */

@@ -42,7 +42,7 @@ const player = () => {
             {apiData ? (
 
                 <iframe
-                    src={`https://www.youtube.com/embed/yAZxx8t9zig${apiData.key}`}
+                    src={`https://www.youtube.com/embed/${apiData.key}`}
                     title="Trailer"
                     width={"90%"}
                     height={"90%"}

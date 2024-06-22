@@ -1,5 +1,5 @@
 // imports Bibliotecas
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 
 // Importa CSS  
 import './Navbar.css'
@@ -10,6 +10,7 @@ import Profile_img from '../../assets/img/profile_img.png'
 import { BsSearch, BsBell, BsCaretDown } from "react-icons/bs";
 
 const Navbar = () => {
+
     useEffect(() => {
         const handleScroll = () => {
             const navbar = document.querySelector('.navbar');
