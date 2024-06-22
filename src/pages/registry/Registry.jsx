@@ -1,6 +1,6 @@
 // Imports Bibliotecas
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 // Importa CSS
 import './Registry.css'
@@ -19,6 +19,15 @@ const Registry = () => {
     const [password, setPassword] = useState(''); // Estado inicial da senha
     const [showSuccessMessage, setShowSuccessMessage] = useState(false);
     const navigate = useNavigate();
+    const location = useLocation();
+    const emailFromAssineNetflix = location.state?.email || '';
+
+    useEffect(() => {
+        const emailFromAssineNetflix = location.state?.email || '';
+        if (emailFromAssineNetflix) {
+            setEmail(emailFromAssineNetflix);
+        }
+    }, [location]);
 
     const user_auth = async (e) => {
         e.preventDefault();
@@ -62,21 +71,22 @@ const Registry = () => {
             <img className='registry-logo' src={Logo} alt="Logo" />
             <div className="registry-form">
                 <h1>Registar</h1>
+
                 <form>
 
                     <input type="text" placeholder="Usuário"
                         value={name}
-                        onChange={(e) => { setName(e.target.value) }}
+                        onChange={(e) => setName(e.target.value) }
                     />
 
                     <input type="email" placeholder='Email'
                         value={email}
-                        onChange={(e) => { setEmail(e.target.value) }}
+                        onChange={(e) => setEmail(e.target.value) }
                     />
 
                     <input type="password" placeholder="Senha"
                         value={password}
-                        onChange={(e) => { setPassword(e.target.value) }}
+                        onChange={(e) => setPassword(e.target.value)}
                     />
 
                     <div className="registry-buttons">
