@@ -1,5 +1,6 @@
 // Imports Bibliotecas
 import React, { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom';
 
 // Importa CSS
 import './TitleCards.css'
@@ -56,10 +57,10 @@ const TitleCards = ({ title, category }) => {
             <BsChevronLeft className="scroll-icon left" onClick={scrollLeft} />
             <div className="cards-list" ref={cardsRef}>
                 {apiData.map((card, index) => {
-                    return <div className='card' key={index}>
+                    return <Link to={`/player/${card.id}`} className='card' key={index}>
                         <img src={`https://image.tmdb.org/t/p/w500` + card.backdrop_path} alt="Logo do card" />
                         <p>{card.original_title}</p>
-                    </div>
+                    </Link>
                 })}
             </div>
             <BsChevronRight className="scroll-icon right" onClick={scrollRight} />
