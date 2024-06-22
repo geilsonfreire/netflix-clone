@@ -1,5 +1,5 @@
 // Imports Bibliotecas
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 // Importa CSS
 import './TitleCards.css'
@@ -11,10 +11,30 @@ import { BsChevronRight, BsChevronLeft } from "react-icons/bs";
 import Cards_Data from '../../assets/cards/Cards_data'
 
 
-const TitleCards = ({title, category}) => {
+const TitleCards = ({ title, category }) => {
 
     // Declaraçao de constants e funçoes
+    const [apiData, setApiData] = useState([]); // [1]  - Estado para armazenar os dados da API
     const cardsRef = useRef();
+
+    const options = {
+        method: 'GET',
+        headers: {
+            accept: 'application/json',
+            Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyYjZmNDFiYzRmZGNmYmI2MWNmNmM4MzBlOTdkNTFhMyIsIm5iZiI6MTcxOTA1ODgzMC44OTQ2Mywic3ViIjoiNjY3NjA0Y2M2NjBmOWVhNWIwMzRiYjhhIiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.c5dfWNfbNJosO2D3wBESEWK5n11lHoMrNAmhqyW3Mjs'
+        }
+    };
+
+    useEffect(() => {
+
+        fetch(`https://api.themoviedb.org/3/movie/${category ? category : "now_playing"}?language=en-US&page=1`, options)
+            .then(response => response.json())
+            .then(response => setApiData(response.results))
+            .catch(err => console.error(err));
+
+        cardsRef.current.addEventListener('wheel', handleWheel);
+    }, [])
+
 
     const handleWheel = (e) => {
         e.preventDefault();
@@ -29,18 +49,16 @@ const TitleCards = ({title, category}) => {
         cardsRef.current.scrollLeft += cardsRef.current.offsetWidth;
     }
 
-    useEffect(() => {
-        cardsRef.current.addEventListener('wheel', handleWheel);
-    }, [])
-
+   
     return (
         <div className='title-cards'>
             <h2>{title ? title : "Novidades na Netflix"}</h2>
             <BsChevronLeft className="scroll-icon left" onClick={scrollLeft} />
             <div className="cards-list" ref={cardsRef}>
-                {Cards_Data.map((card, index) => {
+                {apiData.map((card, index) => {
                     return <div className='card' key={index}>
-                        <img src={card.image} alt="Imagem" />
+                        <img src={`https://image.tmdb.org/t/p/w500` + card.backdrop_path} alt="Logo do card" />
+                        <p>{card.original_title}</p>
                     </div>
                 })}
             </div>

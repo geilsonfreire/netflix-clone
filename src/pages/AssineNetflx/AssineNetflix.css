@@ -1,0 +1,124 @@
+/*Logim geral */
+.assine-page {
+    height: 100vh;
+    background-image:
+        linear-gradient(#0000007e, #0000007e), url(/public/background_banner.jpg);
+    padding: 24px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*Login Logo  */
+.assine-logo {
+    width: 150px;
+    margin: 0 8%;
+}
+
+.header .entrar {
+    width: 8%;
+    margin-right: 24px;
+    border: none;
+    outline: none;
+    padding: 10px;
+    background: #e50914;
+    color: white;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.header .entrar:hover {
+    background: #7c0108;
+}
+
+
+/* TXT */
+.Assine-ja {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto auto;
+    width: 100%;
+    height: 100%;
+}
+
+.Assine-ja h1 {
+    font-size: 52px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.Assine-ja h3 {
+    font-size: 30px; 
+    margin-bottom: 15px;
+}
+
+.Assine-ja p {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+
+/* Form */
+.Assine-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    gap: 10px;
+}
+
+
+.Assine-form .Assine-input {
+    width: 80%;
+    background: #3333336e;
+    color: white;
+    padding: 16px 20px;
+    border: solid 1px #fff;
+    outline: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+form .Assine-input::placeholder {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Login Buttons */
+.Assine-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px #3333336e;
+}
+
+.Assine-buttons .Assine-button {
+    width: 200px;
+    border: none;
+    outline: none;
+    padding: 16px;
+    background: #e50914;
+    color: white;
+    border-radius: 4px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.Assine-buttons .Assine-button:hover {
+    background: #970204fd;
+}
+
+.Assine-buttons .Assine-button i {
+    font-size: 20px;
+    margin-left: 20px;
+}
+

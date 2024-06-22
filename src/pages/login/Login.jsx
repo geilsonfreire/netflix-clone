@@ -1,5 +1,6 @@
 // Imports Bibliotecas
-import React from 'react'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 
 // Importa CSS
 import './Login.css'
@@ -10,14 +11,17 @@ import Logo from '../../assets/img/logo.png'
 // Import Components
 import Footer from '../../components/footer/Footer'
 
+
 const Login = () => {
+    const [signState, setSignState] = useState('Entrar'); // Estado do Login
+
     return (
         <div className='login'>
             <img className='login-logo' src={Logo} alt="Logo" />
             <div className="login-form">
-                <h1>Entrar</h1>
+                <h1>{signState}</h1>
                 <form>
-                    <input type="text" placeholder="Usuário" />
+                    {signState === "sign up" ? <input type="text" placeholder="Usuário" />:<></> }
                     <input type="email" placeholder='Email' />
                     <input type="password" placeholder="Senha" />
 
@@ -34,10 +38,10 @@ const Login = () => {
                             <input type="checkbox" />
                             <label>Lembre-se de mim</label>
                         </div>
-
+                        
                         <p>
                             Novo por aqui? 
-                            <a href="#">Assine agora.</a>
+                            <Link to="/AssineNetflix">Assine agora.</Link>
                         </p>
                     </div>
                 </form>
