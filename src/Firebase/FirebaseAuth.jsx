@@ -12,6 +12,7 @@ import {
     collection, 
     getFirestore 
 } from "firebase/firestore";
+import { toast } from "react-toastify";
 
 
 // Meu projeto do Firebase web authentication
@@ -43,7 +44,7 @@ const signup = async (name, email, password) => {
     } catch (error) {
         return error;
         console.error(error);
-        alert(error.message);
+        toast.error(error);
     }
 }
 
@@ -53,7 +54,7 @@ const login = async (email, password) => {
     } catch (error) {
         return error;
         console.error(error);
-        alert(error.message);
+        toast.error(error);
     }
 }
 

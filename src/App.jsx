@@ -2,6 +2,8 @@
 import React, { useEffect } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 import { onAuthStateChanged } from 'firebase/auth'
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
 
 // Imports Components
 import Home from './pages/home/Home'
@@ -15,7 +17,7 @@ const App = () => {
 
     const Navigate = useNavigate();
 
-    useEffect(() => {
+    /* useEffect(() => {
         onAuthStateChanged(auth, async (user) => {
             if (user) {
                 console.log("Logado...");
@@ -25,10 +27,11 @@ const App = () => {
                 Navigate('/login');
             }
         })
-    }, [])
+    }, []) */
 
     return (
         <div>
+            <ToastContainer theme='dark' />
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />

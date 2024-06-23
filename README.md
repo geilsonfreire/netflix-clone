@@ -8,6 +8,8 @@
 <ul>
     <li>React routes Dom </li> 
     <li> React Icons </li>
+    <li> React-Toastify - https://www.npmjs.com/package/react-toastify </li>
+
 </ul>
 
 # APIs

@@ -84,7 +84,6 @@
     border-radius: 4px;
     flex-direction: column;
     padding: 18px 22px;
-    margin-top: 5px;
     z-index: 1;
     display: none;
     transform: translateX(100%);

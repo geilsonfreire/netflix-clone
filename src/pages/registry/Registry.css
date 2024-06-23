@@ -107,16 +107,3 @@
     font-size: 16px;
     margin: 0 10px;
 }
-
-/* Mensagens */
-.success-message {
-    position: fixed;
-    top: 8%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: transparent;
-    color: green;
-    padding: 20px;
-    z-index: 1000;
-    border-radius: 5px;
-}

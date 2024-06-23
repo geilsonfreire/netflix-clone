@@ -1,6 +1,8 @@
 // Imports Bibliotecas
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify'; // Import Toastify
+import 'react-toastify/dist/ReactToastify.css'; // Importa CSS do Toastify
 
 // Importa CSS
 import './Registry.css'
@@ -17,10 +19,8 @@ const Registry = () => {
     const [name, setName] = useState(''); // Estado inicial do usuario
     const [email, setEmail] = useState(''); // Estado inicial do email
     const [password, setPassword] = useState(''); // Estado inicial da senha
-    const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-    const navigate = useNavigate();
     const location = useLocation();
-    const emailFromAssineNetflix = location.state?.email || '';
+    const navigate = useNavigate();
 
     useEffect(() => {
         const emailFromAssineNetflix = location.state?.email || '';
@@ -56,18 +56,15 @@ const Registry = () => {
 
         // Se passar por todas as verificações, chama a função de cadastro
         await signup(name, email, password);
-        setShowSuccessMessage(true); // Mostra a mensagem de sucesso
+        toast.success("Registrado com sucesso!"); // Usa toast para mensagem de sucesso
+        navigate('/login');
         setTimeout(() => {
-            setShowSuccessMessage(false); // Esconde a mensagem após 3 segundos
-            navigate('/login'); // Redireciona para a página de login
-        }, 3000);
+        }, 5000);
     }
 
     return (
         <div className='registry'>
-            {showSuccessMessage && (
-                <div className="success-message">Registrado com sucesso!</div>
-            )}
+            <ToastContainer /> {/* Adiciona o contêiner do Toastify */}
             <img className='registry-logo' src={Logo} alt="Logo" />
             <div className="registry-form">
                 <h1>Registar</h1>
