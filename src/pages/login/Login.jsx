@@ -1,45 +1,59 @@
 // Imports Bibliotecas
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify'; 
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 // Importa CSS
 import './Login.css'
+import 'react-toastify/dist/ReactToastify.css'; // Importa o CSS do Toastify
 
 // Import Icons, img, Assets
 import Logo from '../../assets/img/logo.png'
 
+
 // Import Components
 import Footer from '../../components/footer/Footer'
-import { login, signup } from '../../Firebase/FirebaseAuth'
+import { login } from '../../Firebase/FirebaseAuth'
 
 
 const Login = () => {
-    const [signState, setSignState] = useState('Sign In'); // Estado do Login
-    const [name, setName] = useState(''); // Estado inicial do usuario
     const [email, setEmail] = useState(''); // Estado inicial do email
     const [password, setPassword] = useState(''); // Estado inicial da senha
+    const Navigate = useNavigate();
+    const auth = getAuth();
+    
 
     const user_auth = async (e) => {
         e.preventDefault();
-        if(signState === 'sign In'){
-            await login( email, password);
-        }else{
-            await signup(name, email, password);
+
+        // Verifica se os campos de email e senha estão preenchidos
+        if (!email || !password) {
+            toast.error('Por favor, preencha todos os campos.');
+            return; // Impede a continuação da função se os campos não estiverem preenchidos
         }
+        
+        try {
+            const user = await login(email, password);
+            if (user) {
+                toast.success('Logado com sucesso!');
+                Navigate('/'); // Redireciona para a Home
+            } else {
+                toast.error('Erro ao fazer login. Tente novamente.');
+            }
+        } catch (error) {
+            toast.error(error.message);
+        }
+        
     }
 
     return (
         <div className='login'>
+            <ToastContainer /> {/* Adiciona o container para exibir as mensagens */}
             <img className='login-logo' src={Logo} alt="Logo" />
             <div className="login-form">
-                <h1>Sign In</h1>
-                <form>
-                    {signState === "sign up" ? 
-                    <input type="text" placeholder="Usuário" 
-                        value={name}
-                        onChange={(e) => {setName(e.target.value)}}
-                    />:<></> }
-
+                <h1>Login</h1>
+                <form onSubmit={user_auth}>
                     <input type="email" placeholder='Email' 
                         value={email}
                         onChange={(e) => {setEmail(e.target.value)}}
@@ -51,7 +65,7 @@ const Login = () => {
                     />
 
                     <div className="login-buttons">
-                        <button type="submit" onClick={user_auth}>Entrar</button>
+                        <button type="submit">Entrar</button>
                         <span className='OU'>OU</span>
                         <button className='codigo-acesso' type="submit">Usar um código de acesso</button>
                     </div>

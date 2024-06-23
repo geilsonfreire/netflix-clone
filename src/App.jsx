@@ -1,9 +1,8 @@
 // Imports Bibliotecas
-import React, { useEffect } from 'react'
-import { Routes, Route, useNavigate } from 'react-router-dom'
-import { onAuthStateChanged } from 'firebase/auth'
+import React from 'react'
+import { Routes, Route } from 'react-router-dom'
 import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 
 // Imports Components
 import Home from './pages/home/Home'
@@ -14,20 +13,6 @@ import Player from './pages/player/player'
 
 
 const App = () => {
-
-    const Navigate = useNavigate();
-
-    /* useEffect(() => {
-        onAuthStateChanged(auth, async (user) => {
-            if (user) {
-                console.log("Logado...");
-                Navigate('/');
-            } else {
-                console.log("Deconectado...");
-                Navigate('/login');
-            }
-        })
-    }, []) */
 
     return (
         <div>

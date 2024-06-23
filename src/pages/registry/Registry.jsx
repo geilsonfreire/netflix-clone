@@ -57,8 +57,8 @@ const Registry = () => {
         // Se passar por todas as verificações, chama a função de cadastro
         await signup(name, email, password);
         toast.success("Registrado com sucesso!"); // Usa toast para mensagem de sucesso
-        navigate('/login');
         setTimeout(() => {
+            navigate('/login');
         }, 5000);
     }
 

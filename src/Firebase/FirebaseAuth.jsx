@@ -50,11 +50,23 @@ const signup = async (name, email, password) => {
 
 const login = async (email, password) => {
     try {
-        await signInWithEmailAndPassword(auth, email, password);
+        const res = await signInWithEmailAndPassword(auth, email, password);
+        const user = res.user;
+        if (user) {
+            return user; 
+        } else {
+            throw new Error('Login failed');
+        }
     } catch (error) {
-        return error;
-        console.error(error);
-        toast.error(error);
+        if (error.code === 'auth/too-many-requests') {
+            throw Error('Acesso à conta temporariamente desativado. Tente novamente mais tarde ou resete sua senha.');
+        } else if (error.code === 'auth/invalid-credential' || error.code === 'auth/invalid-email') {
+            throw Error('Email ou senha inválida'); // Rethrow with a more specific message
+        } else if (error.code === 'auth/wrong-password') {
+            throw Error('Email ou senha inválida'); // Rethrow with a more specific message
+        } else {
+            throw error('Erro desconhecido. Por favor, tente novamente mais tarde.'); 
+        }
     }
 }
 

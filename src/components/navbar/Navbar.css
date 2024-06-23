@@ -79,11 +79,12 @@
     position: absolute;
     top: 100%;
     right: 0;
-    width: max-content;
+    width: 200px;
+    gap: 10px;
     background-color: black;
     border-radius: 4px;
     flex-direction: column;
-    padding: 18px 22px;
+    padding: 18px 20px;
     z-index: 1;
     display: none;
     transform: translateX(100%);
@@ -91,8 +92,8 @@
 }
 
 .navbar-right .navbar-profile .dropdown p {
-    cursor: pointer;
-    font-size: 13px;
+    font-size: 16px;
+    margin: 0;
 }
 
 .navbar-profile:hover .dropdown {

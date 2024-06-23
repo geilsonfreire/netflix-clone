@@ -8,7 +8,7 @@ import './Navbar.css'
 // Imports icon, img, assets
 import logo from '../../assets/img/logo.png'
 import Profile_img from '../../assets/img/profile_img.png'
-import { BsSearch, BsBell, BsCaretDown } from "react-icons/bs";
+import { BsSearch, BsBell, BsCaretDown, BsBoxArrowLeft } from "react-icons/bs";
 
 const Navbar = () => {
 
@@ -53,7 +53,7 @@ const Navbar = () => {
                     <i className='navbar-profile'>{<BsCaretDown />}</i>
 
                     <div className="dropdown">
-                        <Link to={'/Registry'}> Sair da Netflix</Link>
+                        <Link to={'/login'}><BsBoxArrowLeft /> &nbsp; Sair da Netflix</Link>
                     </div>
                 </div>
 
